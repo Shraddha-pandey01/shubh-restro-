@@ -83,25 +83,6 @@ node src/utils/seed.js
 
 ---
 
-## ⚙️ Environment Variables
-
-### Backend (`backend/.env`):
-```env
-PORT=5000
-NODE_ENV=development
-MONGODB_URI=mongodb://127.0.0.1:27017/shubh_restro
-JWT_SECRET=it_is_jwt_secret
-CLIENT_URL=http://localhost:5173
-```
-
-### Frontend (`frontend/.env`):
-```env
-VITE_API_URL=/api
-VITE_SOCKET_URL=http://localhost:5000
-```
-
----
-
 ## 🚀 Running the Application Locally
 
 ### 1. Prerequisites
