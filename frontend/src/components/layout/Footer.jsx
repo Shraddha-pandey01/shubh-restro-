@@ -10,7 +10,7 @@ export const Footer = () => {
         Resturant by Shraddha pandey
       </div>
       <p className="font-body text-sm text-on-surface-variant max-w-md">
-        An authentic celebration of royal Indian gastronomy. Crafted for the discerning epicurean.
+        An authentic celebration of Indian flavours, crafted with care for every food lover.
       </p>
       <div className="flex flex-wrap justify-center gap-6 my-4">
         <Link to="/menu" className="font-body-md text-sm text-on-surface-variant hover:text-primary transition-colors">

@@ -13,7 +13,7 @@ test.describe('Table Booking & Lookup Flow', () => {
 
     // Assert redirected back to /book-a-table
     await expect(page).toHaveURL(/\/book-a-table/, { timeout: 15000 });
-    await expect(page.locator('h1')).toContainText(/Reserve Your Sanctuary/i);
+    await expect(page.locator('h1')).toContainText(/Book Your Dining Experience/i);
 
     // 3. Fill reservation form
     await page.locator('#booking-name-input').fill('Pooja Singh');

@@ -31,7 +31,7 @@ const renderBookATable = () => {
 describe('BookATable Component Tests', () => {
   it('should render table reservation form inputs', () => {
     renderBookATable();
-    expect(screen.getByText(/Reserve Your Sanctuary/i)).toBeInTheDocument();
+    expect(screen.getByText(/Book Your Dining Experience/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Rahul Sharma/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/\+91 9876543210/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /CONFIRM RESERVATION/i })).toBeInTheDocument();

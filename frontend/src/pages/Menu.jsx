@@ -111,10 +111,10 @@ export const Menu = () => {
       <section className="pt-36 pb-16 px-6 lg:px-margin-desktop bg-surface-container-lowest border-b border-primary/20 text-center">
         <div className="max-w-4xl mx-auto">
           <span className="font-label-caps text-xs text-primary tracking-[0.3em] uppercase">
-            Curated Gastronomy
+            Our Specialties
           </span>
           <h1 className="font-headline text-4xl md:text-6xl text-on-surface mt-3 mb-6">
-            The Degustation Menu
+            The Dining Menu
           </h1>
           <p className="font-body text-base text-on-surface-variant max-w-2xl mx-auto font-light leading-relaxed">
             Each composition represents an uncompromised dialogue between authentic Indian spices, time-honored traditional recipes, and culinary excellence.

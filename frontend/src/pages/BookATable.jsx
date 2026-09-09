@@ -116,13 +116,13 @@ export const BookATable = () => {
         {/* Header */}
         <div className="mb-10 text-center">
           <span className="font-label-caps text-xs text-primary tracking-[0.3em] uppercase">
-            An Intimate Affair
+            Celebrate With Us
           </span>
           <h1 className="font-headline text-3xl md:text-5xl text-on-surface mt-2 mb-4">
-            Reserve Your Sanctuary
+            Book Your Dining Experience
           </h1>
           <p className="font-body text-sm text-on-surface-variant max-w-lg mx-auto font-light leading-relaxed">
-            Seating at ShubhRestro is meticulously staged. We accommodate individual tables and private alcoves tailored to your party.
+            At ShubhRestro, we offer comfortable seating with individual tables and private spaces to suit your group and dining needs.
           </p>
 
           {/* Toggle between Book and Lookup */}

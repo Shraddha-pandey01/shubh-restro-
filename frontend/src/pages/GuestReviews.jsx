@@ -73,13 +73,13 @@ export const GuestReviews = () => {
       <section className="pt-36 pb-12 px-6 lg:px-margin-desktop text-center bg-surface-container-lowest border-b border-primary/20">
         <div className="max-w-3xl mx-auto">
           <span className="font-label-caps text-xs text-primary tracking-[0.3em] uppercase">
-            Epicurean Chronicles
+            Customer Stories
           </span>
           <h1 className="font-headline text-4xl md:text-6xl text-on-surface mt-2 mb-4">
             Guest Reflections
           </h1>
           <p className="font-body text-sm md:text-base text-on-surface-variant font-light leading-relaxed mb-6">
-            Read intimate accounts and impressions shared by our patrons following their journey through ShubhRestro.
+            Read what our customers have to say about their dining experience at ShubhRestro.
           </p>
 
           <button
