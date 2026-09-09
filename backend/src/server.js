@@ -29,8 +29,26 @@ initSocket(server, process.env.CLIENT_URL);
 app.use(helmet({
   crossOriginResourcePolicy: { policy: 'cross-origin' },
 }));
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://127.0.0.1:5173',
+].filter(Boolean);
+
 app.use(cors({
-  origin: [process.env.CLIENT_URL || 'http://localhost:5173', 'http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173'],
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    const isAllowed =
+      allowedOrigins.includes(origin) ||
+      /\.vercel\.app$/.test(new URL(origin).hostname) ||
+      /^(http:\/\/localhost|http:\/\/127\.0\.0\.1)(:\d+)?$/.test(origin);
+
+    if (isAllowed || process.env.NODE_ENV !== 'production') {
+      return callback(null, true);
+    }
+    return callback(new Error(`CORS origin ${origin} not allowed`));
+  },
   credentials: true,
 }));
 app.use(express.json());

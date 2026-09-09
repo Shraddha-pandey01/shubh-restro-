@@ -5,7 +5,21 @@ let ioInstance = null;
 export const initSocket = (httpServer, clientUrl = 'http://localhost:5173') => {
   const io = new Server(httpServer, {
     cors: {
-      origin: [clientUrl, 'http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173'],
+      origin: (origin, callback) => {
+        if (!origin) return callback(null, true);
+        const isAllowed =
+          origin === clientUrl ||
+          origin === 'http://localhost:5173' ||
+          origin === 'http://localhost:3000' ||
+          origin === 'http://127.0.0.1:5173' ||
+          /\.vercel\.app$/.test(new URL(origin).hostname) ||
+          /^(http:\/\/localhost|http:\/\/127\.0\.0\.1)(:\d+)?$/.test(origin);
+
+        if (isAllowed || process.env.NODE_ENV !== 'production') {
+          return callback(null, true);
+        }
+        return callback(new Error(`Socket CORS origin ${origin} not allowed`));
+      },
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
       credentials: true,
     },
