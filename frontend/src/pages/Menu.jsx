@@ -5,6 +5,7 @@ import Footer from '../components/layout/Footer.jsx';
 import api from '../services/api.js';
 import { useCart } from '../context/CartContext.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
+import { FALLBACK_MENU } from '../data/fallbackMenu.js';
 
 export const Menu = () => {
   const [items, setItems] = useState([]);
@@ -35,6 +36,27 @@ export const Menu = () => {
   useEffect(() => {
     const fetchMenu = async () => {
       setLoading(true);
+
+      const applyFallbackFilter = () => {
+        let filtered = [...FALLBACK_MENU];
+        if (activeCategory !== 'All') {
+          filtered = filtered.filter((i) => i.category === activeCategory);
+        }
+        if (search) {
+          filtered = filtered.filter(
+            (i) =>
+              i.name.toLowerCase().includes(search.toLowerCase()) ||
+              i.description.toLowerCase().includes(search.toLowerCase())
+          );
+        }
+        if (dietFilter === 'veg') {
+          filtered = filtered.filter((i) => i.isVeg);
+        } else if (dietFilter === 'non-veg') {
+          filtered = filtered.filter((i) => !i.isVeg);
+        }
+        setItems(filtered);
+      };
+
       try {
         const queryParams = new URLSearchParams();
         if (activeCategory !== 'All') queryParams.append('category', activeCategory);
@@ -43,11 +65,13 @@ export const Menu = () => {
         if (dietFilter === 'non-veg') queryParams.append('isVeg', 'false');
 
         const res = await api.get(`/menu?${queryParams.toString()}`);
-        if (res.success) {
+        if (res.success && res.data && res.data.length > 0) {
           setItems(res.data);
+        } else {
+          applyFallbackFilter();
         }
-      } catch (err) {
-        console.error('Failed to load menu items:', err);
+      } catch {
+        applyFallbackFilter();
       } finally {
         setLoading(false);
       }

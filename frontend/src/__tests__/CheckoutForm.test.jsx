@@ -43,12 +43,12 @@ describe('Checkout Form Component Tests', () => {
     renderCheckout();
     expect(screen.getByText(/Checkout & Confirmation/i)).toBeInTheDocument();
     expect(screen.getByText(/Restaurant Pickup/i)).toBeInTheDocument();
-    expect(screen.getByText(/Chauffeured Delivery/i)).toBeInTheDocument();
+    expect(screen.getByText(/^Delivery$/i)).toBeInTheDocument();
   });
 
   it('should switch fulfillment to delivery and prompt for street address', () => {
     renderCheckout();
-    const deliveryBtn = screen.getByText(/Chauffeured Delivery/i);
+    const deliveryBtn = screen.getByText(/^Delivery$/i);
     fireEvent.click(deliveryBtn);
 
     expect(screen.getByPlaceholderText(/12 Civil Lines/i)).toBeInTheDocument();

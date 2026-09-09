@@ -47,10 +47,20 @@ export const OrderTracking = () => {
           const socket = getSocket();
           socket.emit('join:order', res.data._id);
         } else {
-          setError('Order not found.');
+          const cached = localStorage.getItem(`order_${orderId}`);
+          if (cached) {
+            setOrder(JSON.parse(cached));
+          } else {
+            setError('Order not found.');
+          }
         }
-      } catch (err) {
-        setError(err.message || 'Failed to retrieve order details.');
+      } catch {
+        const cached = localStorage.getItem(`order_${orderId}`);
+        if (cached) {
+          setOrder(JSON.parse(cached));
+        } else {
+          setError('Order tracking is currently offline or order not found.');
+        }
       } finally {
         setLoading(false);
       }

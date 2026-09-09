@@ -5,6 +5,7 @@ import Footer from '../components/layout/Footer.jsx';
 import api from '../services/api.js';
 import { useCart } from '../context/CartContext.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
+import { FALLBACK_MENU } from '../data/fallbackMenu.js';
 
 export const ItemDetails = () => {
   const { itemId } = useParams();
@@ -23,11 +24,15 @@ export const ItemDetails = () => {
       setLoading(true);
       try {
         const res = await api.get(`/menu/${itemId}`);
-        if (res.success) {
+        if (res.success && res.data) {
           setItem(res.data);
+        } else {
+          const found = FALLBACK_MENU.find((i) => i._id === itemId) || FALLBACK_MENU[0];
+          setItem(found);
         }
-      } catch (err) {
-        console.error('Failed to load dish:', err);
+      } catch {
+        const found = FALLBACK_MENU.find((i) => i._id === itemId) || FALLBACK_MENU[0];
+        setItem(found);
       } finally {
         setLoading(false);
       }

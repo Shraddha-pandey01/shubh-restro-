@@ -7,10 +7,10 @@ import { useAuth } from '../context/AuthContext.jsx';
 export const LoginRegister = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    phone: '',
+    name: 'Test User',
+    email: 'Testuser@gmail.com',
+    password: '12345678',
+    phone: '+91 9876543299',
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);

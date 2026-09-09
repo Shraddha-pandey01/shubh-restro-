@@ -689,6 +689,24 @@ export const seedDatabase = async () => {
       role: 'customer',
     });
 
+    // Seed Demo Test Admin User
+    await User.create({
+      name: 'Shubham Pandey',
+      email: 'testadmin@gmail.com',
+      passwordHash: 'Admin@123',
+      phone: '+91 9876543298',
+      role: 'admin',
+    });
+
+    // Seed Demo Test Customer User
+    await User.create({
+      name: 'Test User',
+      email: 'testuser@gmail.com',
+      passwordHash: '12345678',
+      phone: '+91 9876543299',
+      role: 'customer',
+    });
+
     console.log(
       `[Seed] Created admin (${admin.email}) and customer (${customer.email}).`
     );

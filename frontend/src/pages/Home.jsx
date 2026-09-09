@@ -7,15 +7,44 @@ import api from '../services/api.js';
 export const Home = () => {
   const [highlights, setHighlights] = useState([]);
 
+  const FALLBACK_HIGHLIGHTS = [
+    {
+      _id: 'hl_demo_1',
+      name: 'Paneer Tikka',
+      category: 'Starters',
+      price: 280,
+      description: 'Char-grilled cottage cheese cubes marinated in spiced hung yogurt, mustard oil, and carom seeds.',
+      imageUrl: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      _id: 'hl_demo_2',
+      name: 'Butter Chicken (Murgh Makhani)',
+      category: 'Main Course',
+      price: 380,
+      description: 'Charred tandoori chicken medallions steeped in a velvet tomato, cashew, and churned butter gravy.',
+      imageUrl: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      _id: 'hl_demo_3',
+      name: 'Awadhi Mutton Biryani',
+      category: 'Biryani & Rice',
+      price: 440,
+      description: 'Lucknowi-style kacchi dum basmati layered with succulent cuts of marinated young lamb and saffron.',
+      imageUrl: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80',
+    },
+  ];
+
   useEffect(() => {
     const fetchHighlights = async () => {
       try {
         const res = await api.get('/menu');
-        if (res.success && res.data) {
+        if (res.success && res.data && res.data.length > 0) {
           setHighlights(res.data.slice(0, 3));
+        } else {
+          setHighlights(FALLBACK_HIGHLIGHTS);
         }
-      } catch (err) {
-        console.error('Failed to load menu highlights:', err);
+      } catch {
+        setHighlights(FALLBACK_HIGHLIGHTS);
       }
     };
     fetchHighlights();
