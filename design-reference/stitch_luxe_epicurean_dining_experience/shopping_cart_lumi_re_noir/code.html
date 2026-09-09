@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUMIÈRE - Cart</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-container": "#554300",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-tint": "#e9c349",
+                        "outline-variant": "#4d4635",
+                        "on-surface": "#e5e2e1",
+                        "on-primary": "#3c2f00",
+                        "tertiary": "#d0cdcd",
+                        "on-secondary-fixed": "#1a1c19",
+                        "primary": "#f2ca50",
+                        "on-secondary-fixed-variant": "#454744",
+                        "primary-fixed": "#ffe088",
+                        "primary-container": "#d4af37",
+                        "surface-dim": "#131313",
+                        "surface-bright": "#3a3939",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#454544",
+                        "surface-variant": "#353534",
+                        "surface-container-highest": "#353534",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-secondary": "#2f312e",
+                        "on-secondary-container": "#b8b9b4",
+                        "on-background": "#e5e2e1",
+                        "outline": "#99907c",
+                        "on-error": "#690005",
+                        "on-surface-variant": "#d0c5af",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed-dim": "#c6c7c2",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "inverse-primary": "#735c00",
+                        "background": "#131313",
+                        "secondary-fixed": "#e3e3de",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "secondary": "#c6c7c2",
+                        "tertiary-container": "#b4b2b2",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "tertiary-fixed": "#e5e2e1",
+                        "secondary-container": "#484a46",
+                        "on-tertiary": "#313030",
+                        "surface-container": "#201f1f",
+                        "surface-container-low": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "80px",
+                        "unit": "8px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px",
+                        "section-gap": "160px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Montserrat"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-caps": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.8", "letterSpacing": "0.01em", "fontWeight": "300" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["84px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: theme('colors.on-background');
+        }
+        .glass-card {
+            background-color: #1A1A1A;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .glass-overlay {
+            backdrop-filter: blur(20px);
+            background-color: rgba(10, 10, 10, 0.7);
+        }
+        .soft-shadow {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        .gold-border-bottom {
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .hover-gold-text:hover {
+            color: theme('colors.primary');
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-container-high'); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.primary-container'); 
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar (Transactional - Suppressed) -->
+<!-- Cart is a transactional flow, so we suppress the main nav and provide a simple 'Back' -->
+<header class="fixed top-0 w-full z-50 py-6 px-margin-mobile md:px-margin-desktop glass-overlay flex justify-between items-center transition-all duration-500 ease-in-out">
+<a class="flex items-center gap-2 text-on-surface hover:text-primary transition-colors duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+<span class="font-label-caps text-label-caps uppercase">Continue Browsing</span>
+</a>
+<div class="font-headline-md text-headline-md text-primary tracking-widest uppercase">
+            LUMIÈRE
+        </div>
+<div class="w-[120px]"></div> <!-- Spacer to balance -->
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop w-full max-w-[1440px] mx-auto">
+<div class="mb-16">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4">Your Selection</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Review the exquisite items you have chosen before finalizing your reservation.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Cart Items List -->
+<div class="lg:col-span-8 flex flex-col gap-unit">
+<!-- Item 1 -->
+<div class="glass-card rounded-none p-6 flex flex-col sm:flex-row gap-8 items-start sm:items-center relative overflow-hidden group">
+<div class="w-full sm:w-48 h-48 flex-shrink-0 relative">
+<img alt="Caviar Dish" class="w-full h-full object-cover rounded-none transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic, moody close-up of a beautifully plated Osetra Caviar dish on a dark ceramic plate. Soft, directional lighting highlights the glistening caviar pearls and delicate gold leaf garnish. The setting is a dimly lit, high-end restaurant table. Minimalist and luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ_zpRZyMIHrJQa3-iSBx8dsMSFq5wFbONfnEuZpCU9vgworUcO1an3Cs4BQCtuPxCvEbXDuGbpeZy9fDpY9e0fqUFppQEOgi0Pz8uV0F08l6hmlP8QoCRc9TYBYhEXkK5ERUQZng873CIbiT3qDgWBej7D0I5mUDorQ78Dby5zS6_qJzSCScBChpO0kwGyCMYI0hD49MpQW0lqo1KU9aFcHONSVqh3dWT2pje6-BBlUsN-eIAGyyo"/>
+</div>
+<div class="flex-grow flex flex-col gap-4 w-full">
+<div class="flex justify-between items-start w-full">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Imperial Osetra Caviar</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Served with traditional accoutrements and house-made blinis.</p>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors p-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+</div>
+<div class="flex justify-between items-center w-full mt-auto pt-4 border-t border-primary/20">
+<div class="flex items-center gap-4 bg-surface-container-low px-4 py-2 border border-primary/20">
+<button class="text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined">remove</span></button>
+<span class="font-label-caps text-label-caps w-4 text-center">1</span>
+<button class="text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined">add</span></button>
+</div>
+<span class="font-body-lg text-body-lg text-primary">$185.00</span>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="glass-card rounded-none p-6 flex flex-col sm:flex-row gap-8 items-start sm:items-center relative overflow-hidden group">
+<div class="w-full sm:w-48 h-48 flex-shrink-0 relative">
+<img alt="Wagyu Dish" class="w-full h-full object-cover rounded-none transition-transform duration-700 group-hover:scale-105" data-alt="A stunning glass of deep red vintage wine next to a perfectly seared Wagyu beef fillet. The dark ambient background creates a dramatic contrast with the rich reds and browns of the food. Lighting is soft, like a candlelight dinner in an exclusive, minimalist luxury setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqnTZtt4_cwDg0rYMRdeBv2dRM2t6ZfYhExdDxmNlEhKZbw4ahAhef47ZHFZs-25uxBRrcSzvNrZLnR0gnTsFVwUcLO2KP5PblaV2XocOru4Gbw16lFfCD42SiMrDxh4A93DJVLsF0iI8JMJeO1AnaGa1Pdzn9j2C4OPIcs5iqYjChQFD7JqW2cmT0rouBl-HSghc-Q4D6KR_tf76KwfM9mHIPYiH9Bn4mK1QRasPrc29w1krihm3N"/>
+</div>
+<div class="flex-grow flex flex-col gap-4 w-full">
+<div class="flex justify-between items-start w-full">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">A5 Wagyu Tasting</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">A curated selection of the finest cuts, accompanied by seasonal truffles.</p>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors p-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">close</span>
+</button>
+</div>
+<div class="flex justify-between items-center w-full mt-auto pt-4 border-t border-primary/20">
+<div class="flex items-center gap-4 bg-surface-container-low px-4 py-2 border border-primary/20">
+<button class="text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined">remove</span></button>
+<span class="font-label-caps text-label-caps w-4 text-center">2</span>
+<button class="text-on-surface hover:text-primary transition-colors"><span class="material-symbols-outlined">add</span></button>
+</div>
+<span class="font-body-lg text-body-lg text-primary">$450.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Summary Sidebar -->
+<div class="lg:col-span-4 mt-8 lg:mt-0">
+<div class="glass-card rounded-none p-8 sticky top-32 soft-shadow flex flex-col gap-8">
+<h2 class="font-headline-md text-headline-md text-on-surface uppercase border-b border-primary/20 pb-4">Summary</h2>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Subtotal</span>
+<span class="font-body-md text-body-md text-on-surface">$1,085.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Taxes &amp; Gratuity Estimate</span>
+<span class="font-body-md text-body-md text-on-surface">$217.00</span>
+</div>
+</div>
+<div class="border-t border-primary/20 pt-6">
+<div class="flex justify-between items-end mb-8">
+<span class="font-label-caps text-label-caps text-on-surface uppercase">Total</span>
+<span class="font-headline-md text-headline-md text-primary">$1,302.00</span>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-caps text-label-caps uppercase py-4 px-6 rounded-none hover:bg-surface-tint transition-colors duration-300 flex justify-center items-center gap-2">
+                            Proceed to Checkout
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<p class="font-label-caps text-[10px] tracking-widest text-on-surface-variant mt-4 text-center uppercase">
+                            Secure Encrypted Transaction
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer (Suppressed for transactional flow, keeping minimal legal text if necessary, but omitting full shell) -->
+<footer class="w-full py-8 text-center text-on-surface-variant font-label-caps text-label-caps opacity-50">
+        © 2024 LUMIÈRE NOIR. SECURE CHECKOUT.
+    </footer>
+</body></html>

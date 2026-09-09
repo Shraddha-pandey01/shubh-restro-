@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUMIÈRE | The Cinematic Dining Experience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-container": "#554300",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-tint": "#e9c349",
+                        "outline-variant": "#4d4635",
+                        "on-surface": "#e5e2e1",
+                        "on-primary": "#3c2f00",
+                        "tertiary": "#d0cdcd",
+                        "on-secondary-fixed": "#1a1c19",
+                        "primary": "#f2ca50",
+                        "on-secondary-fixed-variant": "#454744",
+                        "primary-fixed": "#ffe088",
+                        "primary-container": "#d4af37",
+                        "surface-dim": "#131313",
+                        "surface-bright": "#3a3939",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#454544",
+                        "surface-variant": "#353534",
+                        "surface-container-highest": "#353534",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-secondary": "#2f312e",
+                        "on-secondary-container": "#b8b9b4",
+                        "on-background": "#e5e2e1",
+                        "outline": "#99907c",
+                        "on-error": "#690005",
+                        "on-surface-variant": "#d0c5af",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed-dim": "#c6c7c2",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "inverse-primary": "#735c00",
+                        "background": "#131313",
+                        "secondary-fixed": "#e3e3de",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "secondary": "#c6c7c2",
+                        "tertiary-container": "#b4b2b2",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "tertiary-fixed": "#e5e2e1",
+                        "secondary-container": "#484a46",
+                        "on-tertiary": "#313030",
+                        "surface-container": "#201f1f",
+                        "surface-container-low": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "80px",
+                        "unit": "8px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px",
+                        "section-gap": "160px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Montserrat"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-caps": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.8", "letterSpacing": "0.01em", "fontWeight": "300" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["84px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: #e5e2e1;
+            overflow-x: hidden;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .gold-border-glow:focus-within {
+            border-bottom-color: #d4af37;
+            box-shadow: 0 1px 0 0 #d4af37;
+        }
+    </style>
+</head>
+<body class="antialiased font-body-md text-body-md">
+<!-- TopNavBar (From JSON) -->
+<header class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-xl border-b border-primary/20 shadow-2xl transition-all duration-500 ease-in-out hidden md:flex justify-between items-center px-margin-desktop py-6">
+<div class="font-headline-md text-headline-md text-primary tracking-widest uppercase">LUMIÈRE</div>
+<nav class="flex gap-8">
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors duration-300" href="#">Menu</a>
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors duration-300" href="#">Gallery</a>
+<a class="font-label-caps text-label-caps text-primary border-b border-primary pb-1" href="#">Reservations</a>
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors duration-300" href="#">Reviews</a>
+</nav>
+<div class="flex gap-6 items-center">
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors duration-300" href="#">Login</a>
+<a class="font-label-caps text-label-caps bg-primary text-on-primary px-6 py-3 rounded-none hover:bg-primary-fixed transition-colors" href="#">Book a Table</a>
+</div>
+</header>
+<!-- Mobile Header Placeholder (Minimal) -->
+<header class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl border-b border-primary/20 flex md:hidden justify-between items-center px-margin-mobile py-4">
+<div class="font-headline-md text-headline-md text-primary tracking-widest uppercase">LUMIÈRE</div>
+<button class="text-primary"><span class="material-symbols-outlined">menu</span></button>
+</header>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full opacity-60" data-alt="A cinematic, ultra-high resolution photograph of a darkly lit, luxurious Michelin-star restaurant dining room at dusk. The scene features minimalist table settings illuminated by a single, dramatic spotlight, casting deep shadows across the room. Subtle gold accents glint in the low light. The atmosphere is exclusive, mysterious, and highly sophisticated, perfectly matching a dark-mode editorial design aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCGobhZxjRfKHfowjpVm8x5si8JpZVakgSztJei19eQmlCD8Tqw6sidUMru2kIFPAvlvkSnn5CepCtAq8nD9jYk_7NCph6rLIxMu2NIds1pPj4TKrzeU1-wlW-0orEuQEYLuuNPEs7DFF9IqzpkgQRTcn364u5F4ixcQlIlAoJki9hvuhaZK0eoVzRMHiBk0oxyz98GU4Bxpy0UxW6fWcHftjhc7TeaEPdadmmIykPA25YnADOTkA9y')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop flex flex-col items-center gap-8 mt-24 reveal active">
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg text-on-surface max-w-4xl mx-auto">
+                A Symphony of <span class="text-primary italic font-light">Taste</span> and Shadow
+            </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Experience culinary artistry in an atmosphere designed for the discerning. Lumière offers an exclusive journey through modernist gastronomy.
+            </p>
+<a class="inline-block mt-8 font-label-caps text-label-caps bg-primary text-on-primary px-10 py-4 rounded-none hover:bg-secondary-fixed transition-colors border border-transparent hover:border-primary duration-300 uppercase tracking-widest" href="#reserve">Reserve Now</a>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-primary/50">
+<span class="material-symbols-outlined">keyboard_arrow_down</span>
+</div>
+</section>
+<!-- The Art of Dining Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="col-span-1 md:col-span-5 reveal flex flex-col gap-6 order-2 md:order-1">
+<h2 class="font-label-caps text-label-caps text-primary tracking-[0.3em] uppercase">The Art of Dining</h2>
+<h3 class="font-headline-lg text-headline-lg text-on-surface leading-tight">
+                        Where Every Detail <br/><span class="italic text-on-surface-variant font-light">Tells a Story</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        Our philosophy is rooted in the interplay of light and dark, both in our ambiance and our ingredients. We source the rarest provisions to construct dishes that challenge expectations while comforting the soul.
+                    </p>
+<a class="font-label-caps text-label-caps text-primary border border-primary/50 px-8 py-3 w-max hover:bg-primary/10 transition-colors uppercase" href="#">Explore Philosophy</a>
+</div>
+<div class="col-span-1 md:col-span-6 md:col-start-7 reveal order-1 md:order-2">
+<div class="relative w-full aspect-[4/5] glass-panel p-2">
+<div class="bg-cover bg-center w-full h-full grayscale-[20%] hover:grayscale-0 transition-all duration-700" data-alt="A macro, editorial-style photograph of an exquisite modernist culinary dish plated on a dark slate canvas. The food features delicate garnishes, striking geometric cuts, and vibrant splashes of rare sauces that contrast sharply with the dark background. The lighting is cinematic, casting soft, elegant shadows that highlight the textures of the ingredients. The aesthetic embodies high-end luxury and meticulous craftsmanship." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD95JrEDDUG4y9pF8FCxfye-r83wJCOCcgrziNViDgSn5sQPPWlLY9cKjM7IkdEpX-pzfxslLnQRXgxacoSfKeZR04Gwf1cTLSUE6TPlQlMws4BEaL-MMWFrKw0cYQ_Cm23D35S7UExgUFFQpOCYC1NzxkH103szWPHdWuiDeI0uyBAMzIMLWIscFisLjvlXUfGzwtVfUig3Ag9cDa9sPIxS77S5zN1t3cJhBMDx3kABp8QWLsey-ML')"></div>
+<div class="absolute -bottom-8 -left-8 w-48 h-48 border border-primary/30 z-[-1]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer (From JSON) -->
+<footer class="relative bottom-0 w-full bg-surface-dim border-t border-primary/20 flex flex-col items-center gap-unit px-margin-desktop py-section-gap fade-in duration-700">
+<div class="font-headline-lg text-headline-lg text-primary mb-8">LUMIÈRE</div>
+<div class="flex gap-6 mb-12">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Careers</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant/50 text-sm tracking-widest uppercase">
+            © 2024 LUMIÈRE NOIR. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+<script>
+        // Scroll Reveal Logic
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+    </script>
+</body></html>

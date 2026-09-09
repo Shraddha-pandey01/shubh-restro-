@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumière Noir - Review Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-container": "#554300",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-tint": "#e9c349",
+                        "outline-variant": "#4d4635",
+                        "on-surface": "#e5e2e1",
+                        "on-primary": "#3c2f00",
+                        "tertiary": "#d0cdcd",
+                        "on-secondary-fixed": "#1a1c19",
+                        "primary": "#f2ca50",
+                        "on-secondary-fixed-variant": "#454744",
+                        "primary-fixed": "#ffe088",
+                        "primary-container": "#d4af37",
+                        "surface-dim": "#131313",
+                        "surface-bright": "#3a3939",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#454544",
+                        "surface-variant": "#353534",
+                        "surface-container-highest": "#353534",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-secondary": "#2f312e",
+                        "on-secondary-container": "#b8b9b4",
+                        "on-background": "#e5e2e1",
+                        "outline": "#99907c",
+                        "on-error": "#690005",
+                        "on-surface-variant": "#d0c5af",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed-dim": "#c6c7c2",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "inverse-primary": "#735c00",
+                        "background": "#131313",
+                        "secondary-fixed": "#e3e3de",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "secondary": "#c6c7c2",
+                        "tertiary-container": "#b4b2b2",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "tertiary-fixed": "#e5e2e1",
+                        "secondary-container": "#484a46",
+                        "on-tertiary": "#313030",
+                        "surface-container": "#201f1f",
+                        "surface-container-low": "#1c1b1b"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-desktop": "80px",
+                        "unit": "8px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px",
+                        "section-gap": "160px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Montserrat"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-caps": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { "lineHeight": "1.8", "letterSpacing": "0.01em", "fontWeight": "300" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["84px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0A;
+            color: theme('colors.on-background');
+        }
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        .text-gold {
+            color: theme('colors.primary');
+        }
+        .border-gold {
+            border-color: theme('colors.primary');
+        }
+        .bg-gold {
+            background-color: theme('colors.primary');
+        }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-variant');
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline');
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full py-8 fixed left-0 top-0 h-screen w-64 bg-surface-container-low shadow-xl z-40 border-r border-primary/10">
+<div class="px-6 mb-12">
+<h1 class="font-headline-md text-headline-md text-primary tracking-widest">Management</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-2">Lumière Noir</p>
+</div>
+<div class="flex-grow overflow-y-auto space-y-2">
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all py-4 px-6 flex items-center gap-4 font-label-caps text-label-caps scale-98 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+                Overview
+            </a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all py-4 px-6 flex items-center gap-4 font-label-caps text-label-caps scale-98 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">restaurant_menu</span>
+                Menu
+            </a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all py-4 px-6 flex items-center gap-4 font-label-caps text-label-caps scale-98 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">receipt_long</span>
+                Orders
+            </a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all py-4 px-6 flex items-center gap-4 font-label-caps text-label-caps scale-98 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">event_seat</span>
+                Reservations
+            </a>
+<a class="text-primary bg-primary/5 border-l-2 border-primary py-4 px-6 flex items-center gap-4 font-label-caps text-label-caps scale-98 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">rate_review</span>
+                Reviews
+            </a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all py-4 px-6 flex items-center gap-4 font-label-caps text-label-caps scale-98 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">collections</span>
+                Gallery
+            </a>
+<a class="text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all py-4 px-6 flex items-center gap-4 font-label-caps text-label-caps scale-98 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">group</span>
+                Customers
+            </a>
+</div>
+<div class="px-6 mt-auto space-y-4">
+<button class="w-full bg-transparent border border-primary/20 text-primary font-label-caps text-label-caps py-3 hover:bg-primary/5 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+                View Live Site
+            </button>
+<div class="pt-4 border-t border-primary/10">
+<a class="text-on-surface-variant hover:text-primary py-3 flex items-center gap-4 font-label-caps text-label-caps transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">settings</span>
+                    Settings
+                </a>
+<a class="text-on-surface-variant hover:text-primary py-3 flex items-center gap-4 font-label-caps text-label-caps transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">logout</span>
+                    Logout
+                </a>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 relative min-h-screen">
+<!-- Subtle Background Glow -->
+<div class="absolute top-0 left-1/4 w-1/2 h-96 bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="px-margin-mobile md:px-margin-desktop py-12 md:py-24 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8 fade-in-up">
+<div>
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-4">Guest Feedback</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Curating the voice of our patrons. Review, respond, and highlight exceptional dining experiences.</p>
+</div>
+<div class="flex gap-4">
+<div class="glass-panel px-6 py-4 flex flex-col items-center min-w-[120px]">
+<span class="font-headline-md text-headline-md text-primary">4.9</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1">Average</span>
+</div>
+<div class="glass-panel px-6 py-4 flex flex-col items-center min-w-[120px]">
+<span class="font-headline-md text-headline-md text-on-surface">12</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant mt-1">Pending</span>
+</div>
+</div>
+</header>
+<!-- Filters & Controls -->
+<div class="glass-panel p-6 mb-12 flex flex-col md:flex-row gap-6 items-center justify-between sticky top-0 z-30 fade-in-up" style="animation-delay: 0.1s;">
+<div class="flex gap-8 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
+<button class="font-label-caps text-label-caps text-primary border-b border-primary pb-1 whitespace-nowrap">All Reviews</button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Requires Reply</button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Featured</button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Flagged</button>
+</div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<div class="relative w-full md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="w-full bg-surface-container border-b border-primary/20 border-t-0 border-l-0 border-r-0 focus:ring-0 focus:border-primary pl-10 py-2 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50 transition-colors" placeholder="Search reviews..." type="text"/>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Reviews Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+<!-- Review Card 1 (Needs Reply) -->
+<article class="glass-panel p-8 flex flex-col gap-6 relative group fade-in-up" style="animation-delay: 0.2s;">
+<div class="absolute top-0 right-0 w-1 h-full bg-primary/20 group-hover:bg-primary transition-colors"></div>
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Close up cinematic portrait of a sophisticated diner in a dimly lit, high-end restaurant, soft directional lighting highlighting elegant features, deep shadows, luxurious atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmj56ON7XY4I6_sc_O3C5jypDVZ3J-Vd9pS22RBqYtHvNw0MS3DlEcR0ycgNyDs3nrfzybbnZIWwrEHaFI_tvakNa7otsH98v5rb_RBRSu4hln4Zz22nlsew0rU6xUQ3Cv-Fe6nHjlM2PHpMq1GNI9hiHSgfZGe_c3i2lZCwC3iz5gdgJgKL5LqUoEO-OLSCQw9GMRIo1A5Fc1ISXJ1CGjxD6a7Kq7AiKwycrebPXiI_JvGiuguP_S"/>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface">Eleanor Vance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Dined on Oct 12 • Table 4</p>
+</div>
+</div>
+<div class="flex gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="flex-grow">
+<p class="font-headline-md text-headline-md italic text-on-surface mb-4">"An absolute triumph of culinary architecture."</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">The tasting menu was a revelation, particularly the smoked venison which was presented with theatrical flair without sacrificing substance. The sommelier's pairings were audacious yet perfectly balanced. My only minor note was a slight delay before dessert, though the ambiance made the wait pleasant.</p>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-primary/10">
+<div class="flex gap-4">
+<button class="font-label-caps text-label-caps text-primary hover:text-primary-fixed transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">reply</span> Reply
+                            </button>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">star</span> Feature
+                            </button>
+</div>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-sm">flag</span>
+</button>
+</div>
+</article>
+<!-- Review Card 2 (Replied, Featured) -->
+<article class="glass-panel p-8 flex flex-col gap-6 relative group fade-in-up" style="animation-delay: 0.3s;">
+<div class="absolute top-4 right-4 bg-primary text-on-primary font-label-caps text-[10px] px-2 py-1 rounded-none flex items-center gap-1 shadow-lg">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">push_pin</span> Featured
+                    </div>
+<div class="flex justify-between items-start pr-24">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Cinematic profile shot of a distinguished gentleman holding a wine glass, moody rim lighting, dark background, elegant dining setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSaY7LAsIVOWts8RM2Cpva_owbG3j2CU-VqwCKjH0YZwC7lP5k3fCP8Gne6uVMK0tctYUsCED0fU4PGZeO9Y-dskKMQm3dNCaZ0b6wQkgyxBtlBhHzvJ3NULC3xNoc7D51EfzfXaSmiaYAZ4vbhd8Rb-TuTBzVhuUCaDMkiaTauFBEwjg3NLy-7lyo8t2ZwGbeBAwGxpmyK8YtCfhO3I0jYon6luemeKaG0bqjU3wxmq1CGnOssY1_"/>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface">Arthur Pendelton</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Dined on Oct 10 • Chef's Table</p>
+</div>
+</div>
+<div class="flex gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="flex-grow">
+<p class="font-headline-md text-headline-md italic text-on-surface mb-4">"The definition of modern noir dining."</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">From the moment we stepped into the shadows of Lumière, the experience was flawless. The juxtaposition of delicate flavors against the stark, brutalist interior design creates a tension that is released with every bite. The signature black truffle risotto is mandatory.</p>
+</div>
+<!-- Management Reply -->
+<div class="mt-4 bg-surface-container-high/50 p-4 border-l border-primary/30">
+<p class="font-label-caps text-label-caps text-primary mb-2">Management Response</p>
+<p class="font-body-md text-body-md text-on-surface-variant italic text-sm">Mr. Pendelton, it was our distinct pleasure to host you at the Chef's Table. We strive to curate that exact tension you described. We look forward to your return.</p>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-primary/10">
+<div class="flex gap-4">
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">edit</span> Edit Reply
+                            </button>
+<button class="font-label-caps text-label-caps text-primary hover:text-on-surface transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span> Unfeature
+                            </button>
+</div>
+</div>
+</article>
+</div>
+<div class="mt-16 flex justify-center fade-in-up" style="animation-delay: 0.4s;">
+<button class="font-label-caps text-label-caps text-primary border border-primary px-8 py-3 hover:bg-primary hover:text-on-primary transition-colors duration-300">
+                    Load More Feedback
+                </button>
+</div>
+</div>
+</main>
+<style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</body></html>

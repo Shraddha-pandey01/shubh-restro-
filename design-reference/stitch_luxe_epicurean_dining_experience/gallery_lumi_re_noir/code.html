@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUMIÈRE - Gallery</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "inverse-surface": "#e5e2e1",
+                      "on-primary-container": "#554300",
+                      "surface-container-high": "#2a2a2a",
+                      "error": "#ffb4ab",
+                      "primary-fixed-dim": "#e9c349",
+                      "surface-tint": "#e9c349",
+                      "outline-variant": "#4d4635",
+                      "on-surface": "#e5e2e1",
+                      "on-primary": "#3c2f00",
+                      "tertiary": "#d0cdcd",
+                      "on-secondary-fixed": "#1a1c19",
+                      "primary": "#f2ca50",
+                      "on-secondary-fixed-variant": "#454744",
+                      "primary-fixed": "#ffe088",
+                      "primary-container": "#d4af37",
+                      "surface-dim": "#131313",
+                      "surface-bright": "#3a3939",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-tertiary-container": "#454544",
+                      "surface-variant": "#353534",
+                      "surface-container-highest": "#353534",
+                      "on-primary-fixed-variant": "#574500",
+                      "on-secondary": "#2f312e",
+                      "on-secondary-container": "#b8b9b4",
+                      "on-background": "#e5e2e1",
+                      "outline": "#99907c",
+                      "on-error": "#690005",
+                      "on-surface-variant": "#d0c5af",
+                      "inverse-on-surface": "#313030",
+                      "secondary-fixed-dim": "#c6c7c2",
+                      "on-error-container": "#ffdad6",
+                      "surface": "#131313",
+                      "inverse-primary": "#735c00",
+                      "background": "#131313",
+                      "secondary-fixed": "#e3e3de",
+                      "on-primary-fixed": "#241a00",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "secondary": "#c6c7c2",
+                      "tertiary-container": "#b4b2b2",
+                      "error-container": "#93000a",
+                      "on-tertiary-fixed": "#1c1b1b",
+                      "tertiary-fixed": "#e5e2e1",
+                      "secondary-container": "#484a46",
+                      "on-tertiary": "#313030",
+                      "surface-container": "#201f1f",
+                      "surface-container-low": "#1c1b1b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "80px",
+                      "unit": "8px",
+                      "margin-mobile": "24px",
+                      "gutter": "24px",
+                      "section-gap": "160px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Montserrat"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ],
+                      "label-caps": [
+                              "Montserrat"
+                      ],
+                      "headline-md": [
+                              "Playfair Display"
+                      ],
+                      "body-md": [
+                              "Montserrat"
+                      ],
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "display-lg-mobile": [
+                              "Playfair Display"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.8",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "300"
+                              }
+                      ],
+                      "headline-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.2em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "84px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom scrollbar for gallery */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0e0e0e; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a2a; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4af37; 
+        }
+
+        /* Prevent image break in masonry */
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+        
+        /* Lightbox transitions */
+        #lightbox {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        #lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        #lightbox-img {
+            transform: scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #lightbox.active #lightbox-img {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary/30 selection:text-primary min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-xl border-b border-primary/20 shadow-2xl flex justify-between items-center px-margin-desktop py-6 transition-all duration-500 ease-in-out hidden md:flex">
+<!-- Brand -->
+<a class="font-headline-md text-headline-md text-primary tracking-widest uppercase" href="#">
+            LUMIÈRE
+        </a>
+<!-- Navigation Links -->
+<div class="flex items-center gap-8 font-label-caps text-label-caps">
+<a class="text-on-surface hover:text-primary transition-colors duration-300" href="#">Menu</a>
+<a class="text-primary border-b border-primary pb-1 transition-colors duration-300" href="#">Gallery</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-300" href="#">Reservations</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-300" href="#">Reviews</a>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-6">
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors duration-300" href="#">Login</a>
+<a class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded-none hover:bg-primary-fixed transition-colors duration-300" href="#">Book a Table</a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-32 pb-section-gap px-margin-desktop max-w-[1440px] mx-auto w-full">
+<!-- Gallery Header -->
+<header class="mb-24 max-w-2xl">
+<h1 class="font-display-lg text-display-lg text-on-surface mb-6 fade-in">Visage</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant fade-in" style="animation-delay: 100ms;">
+                A curated exhibition of our culinary philosophy. Explore the textures, tones, and atmosphere that define the Lumière experience.
+            </p>
+</header>
+<!-- Masonry Grid -->
+<div class="columns-1 sm:columns-2 lg:columns-3 gap-gutter" id="gallery-grid">
+<!-- Gallery Item 1 -->
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" onclick="openLightbox(this)">
+<div class="absolute inset-0 bg-surface-container-highest/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
+<img alt="Dessert plating" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A cinematic, high-resolution close-up of a meticulously plated fine dining dessert. A dark, moody aesthetic with dramatic directional lighting highlighting the textures of gold leaf, dark chocolate, and a vivid berry coulis. The background is completely obscured in deep shadows, creating a sophisticated Michelin-star restaurant atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc17tNDLk4g3kycGt0wFEPNQjOsZE4Di6YCam__nw4sLgnG1uP2uG6Uw8UHZ0GOW4RsFD51AwEPnwxJwlSlUlACpmfh7dC5ZxVZxUMIneUm7lR9Q_LcumDcoMp14SRSTRWQPJFgm5m0FcOv-eX0-CYxU__61oTKS0BBGIJ3ZGcOCnjAZXFHjq7ujF26HGYqWucdGnBPH_MAzLFb2q6TvXsbjWyUk4vxqCZpwnYmOuJqT6NWCJuXelb"/>
+<div class="absolute bottom-0 left-0 p-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+<p class="font-label-caps text-label-caps text-primary mb-1">Dessert</p>
+<h3 class="font-headline-md text-headline-md text-on-surface">Midnight Cocoa</h3>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" onclick="openLightbox(this)">
+<div class="absolute inset-0 bg-surface-container-highest/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
+<img alt="Dining room atmosphere" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A wide shot of a luxurious, dimly lit restaurant dining room at dusk. The scene features minimalist architecture with deep charcoal walls, warm ambient lighting emanating from under-table elements, and sharp golden accents on the furniture. The depth of field is shallow, focusing on a perfectly set table in the foreground." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZnHuf4pl2PWPvK5uwWcrKfXjHaBIJ4cetCUyMg5YFmubFXTMcymqHofjf_i2Yrq7h5z8M3_8P2b-DTvVLYFJW2rEAkYs-7seTUoyEKRL56__uKbm-P4S6LomBlF91a5ZWTW9VzcLDTowGiiIeQJ0V0BUSHp4atDKrnng9fO1BWnHQ7WA_6hxGQeig85bHCM488GWuXzshX640kn3omRzxlhhvWUSmnR6Xog8dJSDfvruohqYv3xM4"/>
+<div class="absolute bottom-0 left-0 p-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+<p class="font-label-caps text-label-caps text-primary mb-1">Atmosphere</p>
+<h3 class="font-headline-md text-headline-md text-on-surface">The Main Room</h3>
+</div>
+</div>
+<!-- Gallery Item 3 -->
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" onclick="openLightbox(this)">
+<div class="absolute inset-0 bg-surface-container-highest/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
+<img alt="Signature Cocktail" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A macro shot of a signature cocktail being poured into an elegant crystal glass. The lighting is theatrical, catching the amber liquid and illuminating a subtle wisp of smoke. The background is a velvety black, emphasizing the luxurious and exclusive mood of a high-end speakeasy bar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6QCzH6JLMVxexFIbZ0mABStDnKU20U8RR9DwblVZFyn_3iUsvobc2avb6XqdQdP354EM8F29lek1WUB8PEo9g_z7fuTQI80N2nqTpSRShXc2aPdMUisxQzI-jRSad_jMucv_zAFdew-XbEyzPlzLd2JWMszFjMXOmMb0o-p37kr9CHyQXavthPL5lLl_j5OeMipryafg_jb4hAlmVXv87zUt9Mo4jsyHDAD0It6GgjDZMiS1BgLI-"/>
+<div class="absolute bottom-0 left-0 p-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+<p class="font-label-caps text-label-caps text-primary mb-1">Mixology</p>
+<h3 class="font-headline-md text-headline-md text-on-surface">Smoked Amber</h3>
+</div>
+</div>
+<!-- Gallery Item 4 -->
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" onclick="openLightbox(this)">
+<div class="absolute inset-0 bg-surface-container-highest/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
+<img alt="Appetizer" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="An abstract, top-down view of a minimalist culinary creation. A stark white plate rests on a dark stone table, featuring a precise, geometric arrangement of vibrant green herbs and a single, perfectly seared scallop. The lighting is crisp and cool, highlighting the contrasting textures and modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByrLD9Gnxex_vSpruXa3DmJUvO5YdkmoaoPIGmah-udrhIkEIJQdH24sAxFDI9yYy4FGKUmJsh-jVc1SziBMpMED-jNv1dhg0sZWE7EnLvlUgYzrqX1NfsKyPaxdIaCNbdPsR0bCqMJvlJ2eRZWmS75ZL7hPY7z51D0se6UdjUfJqE7UJt08ldmwiPfgchy-EYeM8pDlVbFfne2AXjzOhySknVcs1zYkWTrDb2YWZyViBPgc-2Z9iY"/>
+<div class="absolute bottom-0 left-0 p-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+<p class="font-label-caps text-label-caps text-primary mb-1">Appetizer</p>
+<h3 class="font-headline-md text-headline-md text-on-surface">Seared Scallop</h3>
+</div>
+</div>
+<!-- Gallery Item 5 -->
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" onclick="openLightbox(this)">
+<div class="absolute inset-0 bg-surface-container-highest/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
+<img alt="Chef at work" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A portrait-oriented shot capturing the intense concentration of a chef working in a dimly lit, state-of-the-art kitchen. The stainless steel surfaces reflect subtle golden light. The mood is cinematic, emphasizing craftsmanship, precision, and the raw energy behind high-end gastronomy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7xu86MpE2eI-t1VP9lXBGstihHZdjpjgo-K_e0b9h5rVz4sSFqypMoxl0CnBkFWSd0XmTmOpNWREVFnxVZLQt1_CXKs105EzMTUuaXZVk6iFRyuHl4Z2hd6p3fLGnpIGmNFp1zX3FTYxsjnRBEs_PD2iyoHaOt69-8X0khP5i93RJh77PdBWhZY_-6oQ1X1jA6u0PhBXXv6sSce30CPEImzSvfK0t_ulDhaHpoBdh77r87GL_tl0T"/>
+<div class="absolute bottom-0 left-0 p-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+<p class="font-label-caps text-label-caps text-primary mb-1">Behind the Scenes</p>
+<h3 class="font-headline-md text-headline-md text-on-surface">The Kitchen</h3>
+</div>
+</div>
+<!-- Gallery Item 6 -->
+<div class="masonry-item relative group cursor-pointer overflow-hidden rounded-sm" onclick="openLightbox(this)">
+<div class="absolute inset-0 bg-surface-container-highest/20 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
+<img alt="Table setting" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A detailed shot of luxurious table settings in a fine dining environment. Heavy silver cutlery rests beside delicate crystal wine glasses on a dark, textured tablecloth. Soft, moody lighting catches the rim of the glasses and the subtle gold accents of the menu card, conveying exclusivity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Qrk6TrGdMX_UiUNz8owmZIUgWXxDFEEFIqDzDM7FT7xaIA3xYyjvHKvZpjQSW2Y9F1R97Y54s9CEz4T0c-aI5v7Wzgx-cPqRltNNtxnIAGchVH8uvN8Kor5B6lnVxXTNu5eWL8jaBLQWc0HOVDrolu9iH3mGiqYclNk9fnRqf23oHU1cFO9vFYxcwBgWQYvbAY-BoMGwblWvMpyW6EJbjvUTdZp_eRFpRvP8pSdWYbD5XEMshd_7"/>
+<div class="absolute bottom-0 left-0 p-6 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+<p class="font-label-caps text-label-caps text-primary mb-1">Details</p>
+<h3 class="font-headline-md text-headline-md text-on-surface">The Setting</h3>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="relative bottom-0 w-full bg-surface-dim border-t border-primary/20 flex flex-col items-center gap-unit px-margin-desktop py-section-gap fade-in duration-700">
+<div class="font-headline-lg text-headline-lg text-primary mb-8 uppercase tracking-widest">
+            LUMIÈRE
+        </div>
+<div class="flex flex-wrap justify-center gap-8 mb-12">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Contact</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Careers</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant/50 text-sm tracking-widest">
+            © 2024 LUMIÈRE NOIR. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+<!-- Lightroom-style Viewer (Modal) -->
+<div class="fixed inset-0 z-[100] bg-surface-container-lowest/95 backdrop-blur-2xl flex flex-col" id="lightbox">
+<!-- Toolbar -->
+<div class="flex justify-between items-center p-6 w-full absolute top-0 z-10">
+<div class="font-label-caps text-label-caps text-on-surface-variant" id="lightbox-counter">1 / 6</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-high/50" onclick="closeLightbox()">
+<span class="material-symbols-outlined text-[32px]">close</span>
+</button>
+</div>
+<!-- Image Container -->
+<div class="flex-grow flex items-center justify-center p-8 md:p-16 relative">
+<img alt="Expanded View" class="max-w-full max-h-full object-contain shadow-2xl rounded-sm ring-1 ring-primary/10" id="lightbox-img" src=""/>
+</div>
+<!-- Meta info (Optional bottom bar) -->
+<div class="p-6 bg-gradient-to-t from-background to-transparent absolute bottom-0 w-full flex justify-center">
+<h2 class="font-headline-md text-headline-md text-on-surface" id="lightbox-title">Title</h2>
+</div>
+</div>
+<!-- Script for Lightbox Interaction -->
+<script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const allItems = document.querySelectorAll('.masonry-item');
+        
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const title = element.querySelector('h3').innerText;
+            
+            lightboxImg.src = img.src;
+            lightboxTitle.innerText = title;
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            setTimeout(() => {
+                lightboxImg.src = ''; // Clear source after fade out
+                document.body.style.overflow = '';
+            }, 400); // match transition duration
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+        
+        // Simple entry animation
+        document.addEventListener("DOMContentLoaded", () => {
+            const items = document.querySelectorAll('.fade-in, .masonry-item');
+            items.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, 100 * (index + 1));
+            });
+        });
+    </script>
+</body></html>

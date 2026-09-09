@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Confirmation - Lumière Noir</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "inverse-surface": "#e5e2e1",
+                    "on-primary-container": "#554300",
+                    "surface-container-high": "#2a2a2a",
+                    "error": "#ffb4ab",
+                    "primary-fixed-dim": "#e9c349",
+                    "surface-tint": "#e9c349",
+                    "outline-variant": "#4d4635",
+                    "on-surface": "#e5e2e1",
+                    "on-primary": "#3c2f00",
+                    "tertiary": "#d0cdcd",
+                    "on-secondary-fixed": "#1a1c19",
+                    "primary": "#f2ca50",
+                    "on-secondary-fixed-variant": "#454744",
+                    "primary-fixed": "#ffe088",
+                    "primary-container": "#d4af37",
+                    "surface-dim": "#131313",
+                    "surface-bright": "#3a3939",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-tertiary-container": "#454544",
+                    "surface-variant": "#353534",
+                    "surface-container-highest": "#353534",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-secondary": "#2f312e",
+                    "on-secondary-container": "#b8b9b4",
+                    "on-background": "#e5e2e1",
+                    "outline": "#99907c",
+                    "on-error": "#690005",
+                    "on-surface-variant": "#d0c5af",
+                    "inverse-on-surface": "#313030",
+                    "secondary-fixed-dim": "#c6c7c2",
+                    "on-error-container": "#ffdad6",
+                    "surface": "#131313",
+                    "inverse-primary": "#735c00",
+                    "background": "#131313",
+                    "secondary-fixed": "#e3e3de",
+                    "on-primary-fixed": "#241a00",
+                    "on-tertiary-fixed-variant": "#474746",
+                    "secondary": "#c6c7c2",
+                    "tertiary-container": "#b4b2b2",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "tertiary-fixed": "#e5e2e1",
+                    "secondary-container": "#484a46",
+                    "on-tertiary": "#313030",
+                    "surface-container": "#201f1f",
+                    "surface-container-low": "#1c1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "80px",
+                    "unit": "8px",
+                    "margin-mobile": "24px",
+                    "gutter": "24px",
+                    "section-gap": "160px"
+            },
+            "fontFamily": {
+                    "body-lg": [
+                            "Montserrat"
+                    ],
+                    "headline-lg": [
+                            "Playfair Display"
+                    ],
+                    "label-caps": [
+                            "Montserrat"
+                    ],
+                    "headline-md": [
+                            "Playfair Display"
+                    ],
+                    "body-md": [
+                            "Montserrat"
+                    ],
+                    "display-lg": [
+                            "Playfair Display"
+                    ],
+                    "display-lg-mobile": [
+                            "Playfair Display"
+                    ]
+            },
+            "fontSize": {
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.8",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "300"
+                            }
+                    ],
+                    "headline-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.0",
+                                    "letterSpacing": "0.2em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "84px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+          },
+        }
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(26, 26, 26, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .timeline-line {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            height: calc(100% - 48px);
+            width: 2px;
+            background: rgba(212, 175, 55, 0.2);
+            z-index: 0;
+        }
+        
+        .timeline-progress {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            height: 50%; /* Adjust based on status */
+            width: 2px;
+            background: #d4af37;
+            z-index: 1;
+            transition: height 1s ease-in-out;
+        }
+        
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-center p-margin-mobile md:p-margin-desktop relative overflow-hidden">
+<!-- Cinematic Background -->
+<div class="fixed inset-0 z-0 pointer-events-none">
+<div class="absolute inset-0 bg-cover bg-center opacity-20 mix-blend-overlay" data-alt="A macro shot of a sophisticated culinary preparation in a dimly lit, high-end Michelin-star kitchen. Deep shadows, subtle highlights on metallic surfaces, and a cinematic depth of field. The color palette features rich, dark blacks and soft golden ambient light, creating a luxurious and mysterious atmosphere." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB_Z6_IaKOfHDfd_0hci1nxTRIeU2apk5DGmsQ--jxgW_9GOeunN7zGqEZmQlxxkDV2Cayggn9SHKeKdo6pbxiVLHM4mPv9ZGpHJXdu5uDCfmEMpD5BxOyP7-cFbird_DUu5fhA5mjLSFaFS4c6EyEGvgnmjMRIokm7Q-Ji0yFbVgapvO1IHLH_P97jYh5KmSm64YDOUQJwUNmwjYptd_2DaLWkNLRcLV0TvyyeVFfkSYFf0Q_OLRUz')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/40"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="relative z-10 w-full max-w-4xl mx-auto flex flex-col gap-12 pt-20">
+<!-- Header Section -->
+<header class="text-center fade-in-up" style="animation-delay: 0.1s;">
+<p class="font-label-caps text-label-caps text-primary mb-4 tracking-widest">ORDER CONFIRMED</p>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-6">Thank You.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                Your culinary experience is being prepared with the utmost precision. <br class="hidden md:block"/>
+                Order No. <span class="text-primary font-bold">#LUM-8924</span>
+</p>
+</header>
+<!-- Tracking Visual -->
+<div class="glass-panel rounded-xl p-8 md:p-12 relative fade-in-up shadow-2xl" style="animation-delay: 0.3s; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+<div class="relative pl-12 md:pl-16">
+<!-- Lines -->
+<div class="timeline-line"></div>
+<div class="timeline-progress"></div>
+<!-- Status 1: Received (Completed) -->
+<div class="relative mb-12 flex items-start group">
+<div class="absolute -left-12 md:-left-16 top-1 w-6 h-6 rounded-full bg-primary flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[14px] text-on-primary">check</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-1 transition-colors group-hover:text-primary">Order Received</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">7:42 PM — Acknowledged by the kitchen.</p>
+</div>
+</div>
+<!-- Status 2: In Kitchen (Active) -->
+<div class="relative mb-12 flex items-start group">
+<div class="absolute -left-12 md:-left-16 top-1 w-6 h-6 rounded-full bg-primary pulse-dot flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-[14px] text-on-primary">restaurant</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">In the Kitchen</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">7:45 PM — Chef is preparing your selection.</p>
+</div>
+</div>
+<!-- Status 3: On Its Way (Pending) -->
+<div class="relative flex items-start group">
+<div class="absolute -left-12 md:-left-16 top-1 w-6 h-6 rounded-full bg-surface-container-high border-2 border-outline-variant flex items-center justify-center z-10 transition-colors group-hover:border-primary">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">local_shipping</span>
+</div>
+<div class="opacity-50 transition-opacity group-hover:opacity-100">
+<h3 class="font-headline-md text-headline-md text-on-background mb-1">On Its Way</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Estimated arrival: 8:15 PM</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Summary & Actions -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 fade-in-up" style="animation-delay: 0.5s;">
+<!-- Summary -->
+<div class="glass-panel rounded-xl p-8">
+<h4 class="font-label-caps text-label-caps text-primary mb-6 border-b border-primary/20 pb-4">SUMMARY</h4>
+<ul class="space-y-4">
+<li class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface">Truffle Risotto</span>
+<span class="font-body-md text-body-md text-primary">$45</span>
+</li>
+<li class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface">Wagyu A5 Striploin</span>
+<span class="font-body-md text-body-md text-primary">$120</span>
+</li>
+<li class="flex justify-between items-center border-t border-primary/20 pt-4 mt-4">
+<span class="font-body-lg text-body-lg font-bold text-on-background">Total</span>
+<span class="font-body-lg text-body-lg font-bold text-primary">$165</span>
+</li>
+</ul>
+</div>
+<!-- Actions / Contact -->
+<div class="glass-panel rounded-xl p-8 flex flex-col justify-between">
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-6 border-b border-primary/20 pb-4">DELIVERY DETAILS</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">100 Luxury Ave, Apt 4B</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Contact: +1 (555) 019-2834</p>
+</div>
+<div class="mt-8 flex gap-4">
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-4 rounded-none hover:bg-primary-fixed transition-colors flex-1 text-center">
+                        Contact Support
+                    </button>
+<button class="border border-primary text-primary font-label-caps text-label-caps px-6 py-4 rounded-none hover:bg-primary/10 transition-colors flex-1 text-center">
+                        View Receipt
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Suppressed TopNav/BottomNav because this is a transactional "Success" screen -->
+</body></html>

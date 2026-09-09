@@ -1,0 +1,66 @@
+name: Lumière CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  backend-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.11.0
+        with:
+          mongodb-version: '6.0'
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          npm ci
+      - name: Lint backend
+        run: |
+          cd backend
+          npm run lint
+      - name: Type check backend
+        run: |
+          cd backend
+          npx tsc --noEmit
+      - name: Test backend
+        run: |
+          cd backend
+          npm test
+
+  frontend-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm ci
+      - name: Lint frontend
+        run: |
+          cd frontend
+          npm run lint
+      - name: Type check frontend
+        run: |
+          cd frontend
+          npx tsc --noEmit
+      - name: Test frontend
+        run: |
+          cd frontend
+          npm test
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm run build

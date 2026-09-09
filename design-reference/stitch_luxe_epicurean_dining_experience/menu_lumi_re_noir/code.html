@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menu - LUMIÈRE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-container": "#554300",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-tint": "#e9c349",
+                        "outline-variant": "#4d4635",
+                        "on-surface": "#e5e2e1",
+                        "on-primary": "#3c2f00",
+                        "tertiary": "#d0cdcd",
+                        "on-secondary-fixed": "#1a1c19",
+                        "primary": "#f2ca50",
+                        "on-secondary-fixed-variant": "#454744",
+                        "primary-fixed": "#ffe088",
+                        "primary-container": "#d4af37",
+                        "surface-dim": "#131313",
+                        "surface-bright": "#3a3939",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#454544",
+                        "surface-variant": "#353534",
+                        "surface-container-highest": "#353534",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-secondary": "#2f312e",
+                        "on-secondary-container": "#b8b9b4",
+                        "on-background": "#e5e2e1",
+                        "outline": "#99907c",
+                        "on-error": "#690005",
+                        "on-surface-variant": "#d0c5af",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed-dim": "#c6c7c2",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "inverse-primary": "#735c00",
+                        "background": "#131313",
+                        "secondary-fixed": "#e3e3de",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "secondary": "#c6c7c2",
+                        "tertiary-container": "#b4b2b2",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "tertiary-fixed": "#e5e2e1",
+                        "secondary-container": "#484a46",
+                        "on-tertiary": "#313030",
+                        "surface-container": "#201f1f",
+                        "surface-container-low": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "80px",
+                        "unit": "8px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px",
+                        "section-gap": "160px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Montserrat"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-caps": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.8", "letterSpacing": "0.01em", "fontWeight": "300" }],
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.2em", "fontWeight": "600" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["84px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { background-color: #0A0A0A; color: #e5e2e1; }
+        .glass-panel {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .luxury-shadow { box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .menu-item-hover img { transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .menu-item-hover:hover img { transform: scale(1.05); }
+        .fade-in-up { animation: fadeInUp 1s ease-out forwards; opacity: 0; transform: translateY(30px); }
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.3s; }
+        .stagger-3 { animation-delay: 0.5s; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-xl shadow-2xl border-b border-primary/20 transition-all duration-500 ease-in-out hidden md:flex">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full">
+<div class="font-headline-md text-headline-md text-primary tracking-widest">LUMIÈRE</div>
+<nav class="flex gap-8 items-center">
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors duration-300" href="#">Menu</a>
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors duration-300" href="#">Gallery</a>
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors duration-300" href="#">Reservations</a>
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors duration-300" href="#">Reviews</a>
+</nav>
+<div class="flex gap-6 items-center">
+<button class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors duration-300 border border-primary/50 px-6 py-3 rounded-none">Login</button>
+<button class="font-label-caps text-label-caps bg-primary text-black px-6 py-3 rounded-none hover:bg-[#ffe088] transition-colors duration-300">Book a Table</button>
+</div>
+</div>
+</header>
+<!-- Mobile Nav Anchor -->
+<header class="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-xl shadow-2xl border-b border-primary/20 flex md:hidden justify-between items-center px-margin-mobile py-4">
+<div class="font-headline-md text-headline-md text-primary tracking-widest">LUMIÈRE</div>
+<span class="material-symbols-outlined text-primary text-3xl">menu</span>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow pt-[120px] pb-section-gap px-margin-mobile md:px-margin-desktop max-w-[1440px] mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-section-gap text-center fade-in-up stagger-1">
+<h1 class="font-display-lg-mobile md:font-display-lg text-on-surface mb-6">The Culinary <br/><span class="text-primary italic font-serif">Journey</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">A curation of sensory experiences, blending avant-garde techniques with timeless tradition. Prepared with uncompromising dedication.</p>
+</section>
+<!-- Menu Categories Container -->
+<div class="grid grid-cols-1 gap-section-gap">
+<!-- Appetizers -->
+<section class="fade-in-up stagger-2">
+<div class="flex items-center gap-6 mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Prelude</h2>
+<div class="h-px bg-primary/30 flex-grow"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-8 menu-item-hover relative group overflow-hidden cursor-pointer h-[500px] bg-[#1A1A1A] border border-primary/20 luxury-shadow flex flex-col justify-end">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500" data-alt="A macro shot of a meticulously plated scallop crudo on a dark slate plate, garnished with microgreens and edible gold leaf, soft cinematic lighting, deep shadows, high-end culinary photography aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXM2YXQoWGtc113ukdOybML9phvqPdG-LwBAE5RKgwGdpP5akDiJ5Z1_DIpNsZs-UzgCB336aWAdc3_Kumdpy8JV2O3erYLf-eeYGRzpwpXZ0jyltQ4kavcKKrl9MOGqPSa2yxCgCadZjb_JZ-3k2Yla8lFRxrp1jmFrpEZ3nxH4htJ__9Vrq2TiD7LG1-i22dqL7SCLQjDUQwD47x9CnL8diwtcooQOLIxoH2i2_mbJ67rQBtgoLc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+<div class="relative z-10 p-8 glass-panel border-t border-primary/20 m-4">
+<div class="flex justify-between items-end mb-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">Scallop Crudo</h3>
+<span class="font-body-md text-body-md text-primary">$32</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Hokkaido scallop, yuzu kosho, finger lime, white soy emulsion, pristine herbs.</p>
+</div>
+</div>
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="menu-item-hover relative group overflow-hidden cursor-pointer flex-grow bg-[#1A1A1A] border border-primary/20 luxury-shadow flex flex-col justify-end p-6">
+<img class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity duration-500" data-alt="A close up of artisanal sourdough bread served with cultured butter on a dark wooden board, soft warm side lighting creating deep textures, high contrast fine dining style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBujhk-K_yRusG2tTn7tWTs0C2OjqZvSoxouN_KmxVXMJcs6k4cqrDPcpVPwOEWlvsD_QCsQcqo5_UYXydq0lROygAFxwcksBuZGcXyFmPhHF_jbW7YzEwRznDJZGv_d-rXDQStNIXI7XkdHQ9vJn9-47mAz6QQkgze-JjP21SWiqxWUBQET-Ecq5Ehm6RqEJJ2VJj1BOlKQDj93yZRrVm85Uee_fOxKEhqOOglvLbFZOCFSx7L0wMC"/>
+<div class="relative z-10">
+<div class="flex justify-between items-baseline mb-2 border-b border-primary/20 pb-2">
+<h3 class="font-headline-md text-xl text-on-surface">Artisan Loaf</h3>
+<span class="font-body-md text-body-md text-primary">$18</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant">House-cultured butter, smoked sea salt.</p>
+</div>
+</div>
+<div class="menu-item-hover relative group overflow-hidden cursor-pointer flex-grow bg-[#1A1A1A] border border-primary/20 luxury-shadow flex flex-col justify-end p-6">
+<img class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity duration-500" data-alt="A visually stunning plating of beef tartare with a quail egg yolk, served on a minimalist black ceramic dish, dramatic moody lighting, luxury restaurant atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfkjzyb3nnDtVXlYh5SfZ2J_uBxWfrr9bgaBi60FTZmUI_icH3fimIANIgrbS6hVM7HxjzNDFIGac13X52ubeP_zKum8g_jPyfZvFM9sbtOo3EG3bliI23kftDD-RwhWq2-hm70OSoA3NVevStpmmh_vS4mBY8xaZs2d_xosYeJk6BnaKuQAVBfH3D4EVvrxVvzSYTpfHqkS35byxpHcp4fEllOIJu6AL6ZCCxD3JCRkZs_yEM3l03"/>
+<div class="relative z-10">
+<div class="flex justify-between items-baseline mb-2 border-b border-primary/20 pb-2">
+<h3 class="font-headline-md text-xl text-on-surface">Wagyu Tartare</h3>
+<span class="font-body-md text-body-md text-primary">$38</span>
+</div>
+<p class="font-body-md text-sm text-on-surface-variant">Black garlic, cured egg yolk, brioche crisp.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mains -->
+<section class="fade-in-up stagger-3">
+<div class="flex items-center gap-6 mb-16">
+<div class="h-px bg-primary/30 flex-grow"></div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Main Act</h2>
+<div class="h-px bg-primary/30 flex-grow"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-gutter gap-y-16">
+<div class="menu-item-hover group cursor-pointer flex flex-col gap-6">
+<div class="relative overflow-hidden h-[400px] border border-primary/20 luxury-shadow">
+<img class="w-full h-full object-cover" data-alt="A perfectly cooked piece of venison loin with a dark cherry jus, plated on a matte black textured plate with pureed root vegetables, cinematic spot lighting, moody Michelin star style presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRHen2xZdD-FVbCHu3QF1D5cSfNKFDHca5wSQSoX9-cO33fnxIqhf8rkgb9zV7yUJIuvkOynAhP4RKzSdV4Unx7XdtSOqh_iKZwXe5KartoqQXxELBE1BUgYaGysOV-e8SkTTM3ZgoHxrOnv7yzpJSN3mAXKx6dNvjwY1aAm_8ce7e3jS7VbpZukutP3kriWfBMhN-vTLuhUBL0KEVI7MFpT7L0Po-3FmYuR13Ty01hx38nXAc3pIE"/>
+</div>
+<div>
+<div class="flex justify-between items-baseline border-b border-primary/30 pb-4 mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Venison Loin</h3>
+<span class="font-body-md text-body-md text-primary">$75</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Juniper ash, preserved cherry, sunchoke purée, wild mushroom demi-glace.</p>
+</div>
+</div>
+<div class="menu-item-hover group cursor-pointer flex flex-col gap-6 md:mt-24">
+<div class="relative overflow-hidden h-[400px] border border-primary/20 luxury-shadow">
+<img class="w-full h-full object-cover" data-alt="A striking piece of black cod resting in a delicate dashi broth with vibrant green oil droplets, served in a deep dark ceramic bowl, moody high contrast lighting, minimalist luxury food aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh9YnsthbVRw228S02kcCq-EOYu6InZfFkXvAxPitHkDpHZFdtLh7h6HuqOfUd4Slp_d6bJMKK1FScvlxbQJEKi5gqtC6o7CSiT1LmdaOqErK35teRd1QLEA8Rc4YWfL1wmDJZcOZuGA3WTQALNhv4M6u9yiGYO2YohWcILDy79_TbibqaVDKXT1eUe-7T2pvF02-ZwoyYHpJJjuZkNEDqtjETBgDq8NzQpWeR6qJeu7FrKumKl7Oy"/>
+</div>
+<div>
+<div class="flex justify-between items-baseline border-b border-primary/30 pb-4 mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Glacier Cod</h3>
+<span class="font-body-md text-body-md text-primary">$68</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Charred leek dashi, sea succulents, white asparagus, chive oil.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-dim relative bottom-0 w-full border-t border-primary/20 shadow-none fade-in duration-700">
+<div class="flex flex-col items-center gap-unit px-margin-desktop py-section-gap w-full">
+<div class="font-headline-lg text-headline-lg text-primary mb-8">LUMIÈRE</div>
+<div class="flex gap-8 mb-12">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Careers</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">© 2024 LUMIÈRE NOIR. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+</body></html>

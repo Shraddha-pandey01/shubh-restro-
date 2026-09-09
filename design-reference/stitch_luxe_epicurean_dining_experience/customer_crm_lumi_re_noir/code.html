@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUMIÈRE | Customer Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-container": "#554300",
+                        "surface-container-high": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-tint": "#e9c349",
+                        "outline-variant": "#4d4635",
+                        "on-surface": "#e5e2e1",
+                        "on-primary": "#3c2f00",
+                        "tertiary": "#d0cdcd",
+                        "on-secondary-fixed": "#1a1c19",
+                        "primary": "#f2ca50",
+                        "on-secondary-fixed-variant": "#454744",
+                        "primary-fixed": "#ffe088",
+                        "primary-container": "#d4af37",
+                        "surface-dim": "#131313",
+                        "surface-bright": "#3a3939",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#454544",
+                        "surface-variant": "#353534",
+                        "surface-container-highest": "#353534",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-secondary": "#2f312e",
+                        "on-secondary-container": "#b8b9b4",
+                        "on-background": "#e5e2e1",
+                        "outline": "#99907c",
+                        "on-error": "#690005",
+                        "on-surface-variant": "#d0c5af",
+                        "inverse-on-surface": "#313030",
+                        "secondary-fixed-dim": "#c6c7c2",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "inverse-primary": "#735c00",
+                        "background": "#131313",
+                        "secondary-fixed": "#e3e3de",
+                        "on-primary-fixed": "#241a00",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "secondary": "#c6c7c2",
+                        "tertiary-container": "#b4b2b2",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "tertiary-fixed": "#e5e2e1",
+                        "secondary-container": "#484a46",
+                        "on-tertiary": "#313030",
+                        "surface-container": "#201f1f",
+                        "surface-container-low": "#1c1b1b"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "margin-desktop": "80px",
+                        "unit": "8px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px",
+                        "section-gap": "160px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Montserrat"],
+                        "headline-lg": ["Playfair Display"],
+                        "label-caps": ["Montserrat"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "display-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", { lineHeight: "1.8", letterSpacing: "0.01em", fontWeight: "300" }],
+                        "headline-lg": ["48px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "label-caps": ["12px", { lineHeight: "1.0", letterSpacing: "0.2em", fontWeight: "600" }],
+                        "headline-md": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "display-lg": ["84px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "display-lg-mobile": ["48px", { lineHeight: "1.2", fontWeight: "700" }]
+                    },
+                    boxShadow: {
+                        'glass': '0 20px 40px rgba(0,0,0,0.5)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #0A0A0A; }
+        .glass-panel {
+            background-color: #1A1A1A;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .text-gold { color: #D4AF37; }
+        .border-gold { border-color: rgba(212, 175, 55, 0.2); }
+    </style>
+</head>
+<body class="text-on-background bg-background min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex bg-surface-container-low fixed left-0 top-0 h-screen w-64 border-r border-primary/10 shadow-xl flex-col py-8 z-40">
+<div class="px-6 mb-12">
+<h1 class="font-headline-md text-headline-md text-primary tracking-widest">LUMIÈRE</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-2">Management</p>
+</div>
+<div class="flex-1 overflow-y-auto">
+<a class="text-on-surface-variant hover:text-primary py-4 px-6 flex items-center gap-4 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-label-caps text-label-caps">Overview</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary py-4 px-6 flex items-center gap-4 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">restaurant_menu</span>
+<span class="font-label-caps text-label-caps">Menu</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary py-4 px-6 flex items-center gap-4 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">receipt_long</span>
+<span class="font-label-caps text-label-caps">Orders</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary py-4 px-6 flex items-center gap-4 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">event_seat</span>
+<span class="font-label-caps text-label-caps">Reservations</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary py-4 px-6 flex items-center gap-4 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">rate_review</span>
+<span class="font-label-caps text-label-caps">Reviews</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary py-4 px-6 flex items-center gap-4 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">collections</span>
+<span class="font-label-caps text-label-caps">Gallery</span>
+</a>
+<a class="text-primary bg-primary/5 border-l-2 border-primary py-4 px-6 flex items-center gap-4 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-caps text-label-caps">Customers</span>
+</a>
+</div>
+<div class="mt-auto px-6">
+<a class="text-on-surface-variant hover:text-primary py-4 flex items-center gap-4 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+<a class="text-on-surface-variant hover:text-primary py-4 flex items-center gap-4 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">logout</span>
+<span class="font-label-caps text-label-caps">Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 p-margin-mobile md:p-margin-desktop bg-background min-h-screen">
+<!-- Header -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Guest Profiles</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage relationships, history, and preferences.</p>
+</div>
+<div class="flex gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" style="font-variation-settings: 'FILL' 0;">search</span>
+<input class="bg-surface-container-low border border-primary/20 text-on-surface font-body-md text-body-md pl-10 pr-4 py-2 rounded-none focus:outline-none focus:border-primary/50 transition-colors w-64 placeholder-on-surface-variant/50" placeholder="Search guests..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-2 rounded-none hover:bg-primary-fixed transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">add</span>
+                    NEW GUEST
+                </button>
+</div>
+</header>
+<!-- CRM Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- List View -->
+<div class="lg:col-span-2 glass-panel p-6">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-gold font-label-caps text-label-caps text-on-surface-variant">
+<th class="pb-4 font-normal">GUEST NAME</th>
+<th class="pb-4 font-normal">STATUS</th>
+<th class="pb-4 font-normal">VISITS</th>
+<th class="pb-4 font-normal">LAST VISIT</th>
+<th class="pb-4 font-normal text-right">ACTION</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md text-on-surface">
+<tr class="border-b border-gold hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="py-4 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-headline-md text-[16px]">EA</div>
+<div>
+<p class="font-bold">Eleanor Astoria</p>
+<p class="text-[12px] text-on-surface-variant">eleanor@example.com</p>
+</div>
+</td>
+<td class="py-4"><span class="px-2 py-1 bg-primary/10 text-primary text-[10px] tracking-widest rounded-none border border-primary/30">VIP</span></td>
+<td class="py-4 text-gold">42</td>
+<td class="py-4 text-on-surface-variant">Oct 12, 2023</td>
+<td class="py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">more_vert</span></button>
+</td>
+</tr>
+<tr class="border-b border-gold hover:bg-surface-container-low transition-colors group cursor-pointer bg-surface-container-lowest">
+<td class="py-4 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-headline-md text-[16px]">JB</div>
+<div>
+<p class="font-bold">Julian Blackwood</p>
+<p class="text-[12px] text-on-surface-variant">julian.b@example.com</p>
+</div>
+</td>
+<td class="py-4"><span class="px-2 py-1 bg-surface-variant text-on-surface text-[10px] tracking-widest rounded-none border border-outline/30">REGULAR</span></td>
+<td class="py-4 text-gold">14</td>
+<td class="py-4 text-on-surface-variant">Nov 02, 2023</td>
+<td class="py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group cursor-pointer">
+<td class="py-4 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary font-headline-md text-[16px]">SC</div>
+<div>
+<p class="font-bold">Sylvia Croft</p>
+<p class="text-[12px] text-on-surface-variant">scroft@example.com</p>
+</div>
+</td>
+<td class="py-4"><span class="px-2 py-1 bg-primary/10 text-primary text-[10px] tracking-widest rounded-none border border-primary/30">VIP</span></td>
+<td class="py-4 text-gold">28</td>
+<td class="py-4 text-on-surface-variant">Sep 28, 2023</td>
+<td class="py-4 text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Detail View (Bento Card) -->
+<div class="glass-panel p-6 flex flex-col gap-6">
+<!-- Header -->
+<div class="flex items-start justify-between border-b border-gold pb-6">
+<div class="flex gap-4 items-center">
+<img class="w-16 h-16 rounded-none object-cover border border-primary/30" data-alt="A cinematic, low-light portrait photograph of an elegant middle-aged woman wearing subtle gold jewelry. The lighting is soft and directional, typical of a high-end restaurant atmosphere at dusk. The background is a deeply blurred, dimly lit dining room setting with warm golden bokeh. The overall mood is sophisticated, exclusive, and luxurious, matching a dark-mode editorial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUHeZUG68oTITgkH96MuoF45qMhLVTdJ3Jd1TTYOCBnCTTwAm3UMTnPfAl_paojKFYMYvXHceN732eQaDXQZAQ7aX7XXXLTYxCwQ6mWQecrvXKxqMWIhfVdys8QZ-NuWp2qrjCOG5uw9tCzWt6PYBK1iFgb0CkZj_kBaTvfgzgmPNCV27JCuE2boCSQtuZZKkPm7fej7qem2zw9RFOkru6yjtSYRvO-4XuNwtdZ3WDHdp168woTSxv"/>
+<div>
+<h3 class="font-headline-md text-[24px] text-on-surface">Eleanor Astoria</h3>
+<p class="font-label-caps text-label-caps text-primary mt-1">VIP STATUS</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">edit</span></button>
+</div>
+<!-- Stats -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-4 border border-gold border-opacity-10">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-1">TOTAL SPEND</p>
+<p class="font-body-md text-gold text-[20px]">$14,250</p>
+</div>
+<div class="bg-surface-container-lowest p-4 border border-gold border-opacity-10">
+<p class="font-label-caps text-[10px] text-on-surface-variant mb-1">AVG. SPEND/VISIT</p>
+<p class="font-body-md text-gold text-[20px]">$340</p>
+</div>
+</div>
+<!-- Preferences -->
+<div>
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-3">PREFERENCES</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-surface-container-high border border-outline/20 text-on-surface font-body-md text-[12px]">Window Seat</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline/20 text-on-surface font-body-md text-[12px]">Allergic: Shellfish</span>
+<span class="px-3 py-1 bg-surface-container-high border border-outline/20 text-on-surface font-body-md text-[12px]">Prefers Pinot Noir</span>
+</div>
+</div>
+<!-- Notes -->
+<div class="flex-1">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant mb-3">INTERNAL NOTES</h4>
+<p class="font-body-md text-[14px] text-on-surface-variant italic border-l-2 border-primary/50 pl-3">"Always order a bottle of '98 Bordeaux on anniversaries. Prefers quiet corners away from the kitchen."</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

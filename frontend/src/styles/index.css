@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #0e0e0e;
+    color: #e5e2e1;
+    overflow-x: hidden;
+  }
+
+  /* Sharp corners everywhere per design system rules */
+  * {
+    border-radius: 0 !important;
+  }
+
+  /* Specific circular exception for decorative circles */
+  .rounded-full, .circle-badge {
+    border-radius: 9999px !important;
+  }
+}
+
+/* Glassmorphism panel per DESIGN.md */
+.glass-panel {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel-dark {
+  background: rgba(14, 14, 14, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Gold glow and input underline styling */
+.gold-border-glow:focus-within {
+  border-bottom-color: #d4af37;
+  box-shadow: 0 1px 0 0 #d4af37;
+}
+
+/* Custom scrollbar for dark editorial feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0e0e0e;
+}
+::-webkit-scrollbar-thumb {
+  background: #353534;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f2ca50;
+}
